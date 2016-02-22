@@ -1,5 +1,6 @@
 package com.henry.entity;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,9 +9,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name="_user")
 public class Student {
-	private int id;
-	private String name;
+	private StudentPK pk;
+	private String content;
 	
+	@EmbeddedId
+	public StudentPK getPk() {
+		return pk;
+	}
+	public void setPk(StudentPK pk) {
+		this.pk = pk;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
+	/*
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -25,5 +43,5 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	*/
 }
