@@ -12,6 +12,11 @@ import com.henry.util.HibernateUtil;
  *
  */
 public class StudentDao {
+	@Test
+	public void test() {
+		HibernateUtil.getSession().beginTransaction();
+		HibernateUtil.getSession().getTransaction().commit();
+	}
 	@Ignore
 	@Test
 	public void save() {
@@ -82,6 +87,7 @@ public class StudentDao {
 	 * 这里setContent()方法执行后,commit时默认进行flush方法(会保持对象与数据库一致),commit会自动更新(注意:这里没update也更新)
 	 * 加入flush方法会更新两次
 	 */
+	@Ignore
 	@Test
 	public void flush() {
 		StudentPK pk = new StudentPK();

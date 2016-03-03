@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="_user")
 public class Student {
 	private StudentPK pk;
 	private String content;
