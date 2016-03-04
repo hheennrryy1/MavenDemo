@@ -28,7 +28,17 @@
         <mapping class="com.henry.entity.Husband1"/>
 	 -->        
         
+     <!-- 
         <mapping class="com.many2one.entity.Group"/>
         <mapping class="com.many2one.entity.User"/>
+      -->
+      <!-- 
+        <mapping class="com.one2many.entity.Group"/>
+        <mapping class="com.one2many.entity.User"/>
+       -->
+       
+        <mapping class="com.many2one.one2many.entity.Group"/>
+        <mapping class="com.many2one.one2many.entity.User"/>
+        
     </session-factory>
 </hibernate-configuration>
