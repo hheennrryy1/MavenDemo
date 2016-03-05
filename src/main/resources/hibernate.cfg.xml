@@ -36,9 +36,17 @@
         <mapping class="com.one2many.entity.Group"/>
         <mapping class="com.one2many.entity.User"/>
        -->
-       
-        <mapping class="com.many2one.one2many.entity.Group"/>
+       <!-- 
         <mapping class="com.many2one.one2many.entity.User"/>
+        <mapping class="com.many2one.one2many.entity.Group"/>
+        -->
+        <!-- 
+        <mapping class="com.many2many.entity.Student"/>
+        <mapping class="com.many2many.entity.Teacher"/>
+         -->
         
+        <mapping class="com.many2many.bi.entity.Student"/>
+        <mapping class="com.many2many.bi.entity.Teacher"/> 
+         
     </session-factory>
 </hibernate-configuration>
