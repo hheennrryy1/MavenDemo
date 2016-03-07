@@ -24,4 +24,8 @@
 	)
 	```  
 ###多对多双向关联
-	在另一边加入```@ManyToMany(mappedBy="")```
+在另一边加入``@ManyToMany(mappedBy="")``
+###关于CRUD
+1. get和load的是many的一方，那么默认也取one的一方。即默认@ManyToOne(fetch=FetchType.EAGER)
+2. get和load的是one的一方，那么默认不取many的一方。即默认@OneToMany(fetch=FetchType.LAZY)
+3. cascade管的是增删改不包括查。
