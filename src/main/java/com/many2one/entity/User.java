@@ -1,5 +1,6 @@
 package com.many2one.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,8 +25,7 @@ public class User {
 		this.id = id;
 	}
 	
-	@ManyToOne
-	//@JoinColumn(name="")
+	@ManyToOne(cascade=CascadeType.ALL)
 	public Group getGroup() {
 		return group;
 	}

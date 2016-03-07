@@ -3,10 +3,11 @@ package com.many2one.one2many.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,7 +18,10 @@ public class Group {
 	private String name;
 	private Set<User> Users = new HashSet<>();
 
-	@OneToMany(mappedBy="group")
+	@OneToMany(mappedBy="group",
+			cascade=CascadeType.ALL
+		//	,fetch=FetchType.EAGER //Ä¬ÈÏÎªLAZY
+			)
 	public Set<User> getUsers() {
 		return Users;
 	}

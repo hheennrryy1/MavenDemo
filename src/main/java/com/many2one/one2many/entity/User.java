@@ -1,6 +1,8 @@
 package com.many2one.one2many.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,7 +17,9 @@ public class User {
 	private String name;
 	private Group group;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL
+			//,fetch=FetchType.LAZY //²»È¡Group  
+			)
 	@JoinColumn(name="groupId")
 	public Group getGroup() {
 		return group;
@@ -23,6 +27,12 @@ public class User {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", group=" + group + "]";
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

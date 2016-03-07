@@ -38,7 +38,7 @@ public class StudentDao {
 	 */
 	@Ignore
 	@Test
-	public void loadAndLoad() {
+	public void loadAndGet() {
 		StudentPK pk = new StudentPK();
 		pk.setId(1);
 		pk.setName("henry");
