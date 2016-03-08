@@ -1,5 +1,6 @@
 package com.henry.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,8 +19,7 @@ public class Husband {
 	public int getId() {
 		return id;
 	}
-	
-	@OneToOne //一对一单向外键关联
+	@OneToOne(cascade=CascadeType.ALL) //一对一单向外键关联
 	@JoinColumn(name="wifeid") //外键的名字 默认为wife_id
 	public Wife getWife() {
 		return wife;

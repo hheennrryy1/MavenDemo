@@ -18,8 +18,8 @@ public class Group {
 	private String name;
 	private Set<User> Users = new HashSet<>();
 
-	@OneToMany(mappedBy="group",
-			cascade=CascadeType.ALL
+	@OneToMany(mappedBy="group"
+			,cascade=CascadeType.ALL
 		//	,fetch=FetchType.EAGER //Ä¬ÈÏÎªLAZY
 			)
 	public Set<User> getUsers() {

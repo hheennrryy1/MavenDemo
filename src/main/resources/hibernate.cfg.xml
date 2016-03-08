@@ -19,28 +19,30 @@
         <mapping class="com.henry.entity.Student"/>
     -->
     
-	<!-- 
+	 
         <mapping class="com.henry.entity.Husband"/>
         <mapping class="com.henry.entity.Wife"/>
-	 -->
+	  
+	 
 	         
 	<!-- 
         <mapping class="com.henry.entity.Husband1"/>
-	 -->        
-        
-      
+	 -->
+	         
       <!-- 
         <mapping class="com.many2one.entity.Group"/>
         <mapping class="com.many2one.entity.User"/>
-      -->
+       -->
       
       <!-- 
         <mapping class="com.one2many.entity.Group"/>
         <mapping class="com.one2many.entity.User"/>
 	  -->
-	        
+	  <!-- 
         <mapping class="com.many2one.one2many.entity.User"/>
         <mapping class="com.many2one.one2many.entity.Group"/>
+	   -->
+	   
         
         <!-- 
         <mapping class="com.many2many.entity.Student"/>
