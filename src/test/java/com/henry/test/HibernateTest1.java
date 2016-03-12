@@ -1,11 +1,8 @@
 package com.henry.test;
 
-import java.util.Collections;
-
-import javax.persistence.CascadeType;
-
 import org.junit.Ignore;
 import org.junit.Test;
+
 import com.henry.util.HibernateUtil;
 import com.many2one.one2many.entity.Group;
 import com.many2one.one2many.entity.User;
@@ -112,6 +109,7 @@ public class HibernateTest1 {
 		HibernateUtil.getSession().getTransaction().commit();
 	}
 	
+	@Ignore
 	@Test
 	public void testDeleteGroup() {
 		testSaveGroup();
@@ -120,5 +118,6 @@ public class HibernateTest1 {
 		HibernateUtil.getSession().delete(group);
 		HibernateUtil.getSession().getTransaction().commit();
 	}
+	
 	
 }

@@ -19,11 +19,10 @@
         <mapping class="com.henry.entity.Student"/>
     -->
     
-	 
+	 <!-- 
         <mapping class="com.henry.entity.Husband"/>
         <mapping class="com.henry.entity.Wife"/>
-	  
-	 
+	  -->
 	         
 	<!-- 
         <mapping class="com.henry.entity.Husband1"/>
@@ -38,20 +37,24 @@
         <mapping class="com.one2many.entity.Group"/>
         <mapping class="com.one2many.entity.User"/>
 	  -->
+	  
 	  <!-- 
         <mapping class="com.many2one.one2many.entity.User"/>
         <mapping class="com.many2one.one2many.entity.Group"/>
 	   -->
-	   
         
         <!-- 
         <mapping class="com.many2many.entity.Student"/>
         <mapping class="com.many2many.entity.Teacher"/>
          -->
+         
         <!-- 
         <mapping class="com.many2many.bi.entity.Student"/>
         <mapping class="com.many2many.bi.entity.Teacher"/> 
          -->
          
+         <mapping class="com.studentandcourse.entity.Student"/>
+         <mapping class="com.studentandcourse.entity.Score"/>
+         <mapping class="com.studentandcourse.entity.Course"/>
     </session-factory>
 </hibernate-configuration>
