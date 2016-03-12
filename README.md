@@ -16,7 +16,7 @@
 ###一对多，多对一双向关联
 如果不在```@OneToMany```中加```mappedby```属性就会产生中间表，此时通常在```@ManyToOne```的注解下再添上注解```@Joincolumn(name="")```来指定外键的名字。
 ###多对多单向关联
-例子
+生成中间表```JoinColumns参考当前对象的id```，```inverseJoinColumns是参考另一个对象的id```
 	```@ManyToMany
 	@JoinTable(name="t_s",
 				joinColumns={@JoinColumn(name="teacher_id")},
