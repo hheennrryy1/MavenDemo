@@ -10,7 +10,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/henry</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <!-- 使用Spring就不用配置这句了 -->
         <property name="current_session_context_class">thread</property>
         <property name="format_sql">true</property>
@@ -53,8 +53,11 @@
         <mapping class="com.many2many.bi.entity.Teacher"/> 
          -->
          
-         <mapping class="com.studentandcourse.entity.Student"/>
+    <!--      <mapping class="com.studentandcourse.entity.Student"/>
          <mapping class="com.studentandcourse.entity.Score"/>
-         <mapping class="com.studentandcourse.entity.Course"/>
+         <mapping class="com.studentandcourse.entity.Course"/> -->
+         
+         <mapping class="com.henry.OneAndN.Topic"/>
+         <mapping class="com.henry.OneAndN.Category"/>
     </session-factory>
 </hibernate-configuration>
