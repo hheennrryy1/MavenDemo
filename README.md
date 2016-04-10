@@ -27,5 +27,12 @@
 在另一边加入``@ManyToMany(mappedBy="")``
 ###关于CRUD
 1. get和load的是many的一方，那么默认也取one的一方。即默认@ManyToOne(fetch=FetchType.EAGER)
-2. get和load的是one的一方，那么默认不取many的一方。即默认@OneToMany(fetch=FetchType.LAZY)
+2. get和load的是one的一方，那么默认一开始不取many的一方，当你用到的时候才取。即默认@OneToMany(fetch=FetchType.LAZY)
 3. cascade管的是增删改不包括查。
+
+###1+N问题
+举例，多个主题（Topic）属于一个帖子（Category），一个帖子含有多个主题。当只需要查询Topic时不要查询Category时，如果@ManyToOne的属性fetch=FetchType.EAGER,这时查询所有Topic时，每查询一个Topic就会多产生一个SQL语句查询相关的Category表的数据，这样要是有N条Topic数据，就会产生1+N条SQL语句。同样的在@OneToMany的情况下，要是在Many方设置fetch=FetchType.EAGER，同样也会产生1+N的问题。
+####解决方案
+1. fetch=FetchType.LAZY，设为懒加载
+2. @BatchSize（size=5）代表一次取5条数据，这样取5条数据只要发出一条SQL语句，注意是用在被关联类上的（没什么用,不建议用）
+3. 左外连接检索 join fetch(Criteria 查询默认就是join fetch)
