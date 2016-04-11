@@ -15,6 +15,13 @@
         <property name="current_session_context_class">thread</property>
         <property name="format_sql">true</property>
         
+        <!-- 打开二级缓存 -->
+      	<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- 查询缓存依赖于二级缓存 --> 
+		<property name="hibernate.cache.use_query_cache">true</property>  
+<!-- 		<property name="hibernate.cache.provider_configuration_file_resource_path">classpath:ehcache.xml</property>
+ -->		 
     <!-- 
         <mapping class="com.henry.entity.Student"/>
     -->

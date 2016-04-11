@@ -11,8 +11,11 @@ import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 //@BatchSize(size=5)
 public class Category {
 	private int id;
