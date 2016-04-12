@@ -3,12 +3,14 @@ package com.henry.OneAndN;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
@@ -20,6 +22,14 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class Category {
 	private int id;
 	private String name;
+	private int version;
+	@Version
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
 	Set<Topic> topics = new HashSet<>();
 	
 	@Id
