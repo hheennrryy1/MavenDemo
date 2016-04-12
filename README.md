@@ -36,3 +36,29 @@
 1. fetch=FetchType.LAZY，设为懒加载
 2. @BatchSize（size=5）代表一次取5条数据，这样取5条数据只要发出一条SQL语句，注意是用在被关联类上的（没什么用,不建议用）
 3. 左外连接检索 join fetch(Criteria 查询默认就是join fetch)
+
+###二级缓存
+ 二级缓存只能缓存整个对象，不能缓存对象属性，而且对load/get方法、list/iterate方法的在使用上跟一级缓存一样。
+二级缓存是SessionFactory级的缓存，它允许多个Session对象之间共用。
+在配置文件上加入：
+```
+<property name="hibernate.cache.use_second_level_cache">true</property>
+<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+```
+```
+在类上加@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+```
+###查询缓存(基于二级缓存)
+查询缓存是专为Query的list方法设计的。对于iterate()方法，无论是查询对象属性还是对象本身，查询缓存用与不用都没有区别！
+在配置文件上加入：
+```<property name="hibernate.cache.use_query_cache">true</property>```
+###悲观锁
+对数据被外界（包括本系统当前的其它事务和来自外部系统的事务处理）修改持保守态度，通过数据库提供的锁机制实现
+最常用的，是对查询进行加锁（LockMode.UPGRADE和LockMode.UPGRADE_NOWAIT）
+```
+HibernateUtil.getSession().load(Category.class, 1, LockOptions.UPGRADE);
+```
+这次事务提交前，外界无法修改这些记录，事务提交时会释放事务过程中的锁。
+###乐观锁
+在数据库中增加version列，用来记录每行数据的版本。在类的getVersion()方法上加上```@Version```
+通过为数据库表增加一个 “version” 字段来实现。读取出数据时，将此版本号一同读出，之后更新时，对此版本号加一。此时，将提交数据的版本数据与数据库表对应记录的当前版本信息进行比对，如果提交的数据版本号大于数据库表当前版本号，则予以更新，否则认为是过期数据。
